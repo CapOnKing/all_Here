@@ -1,4 +1,5 @@
 checkIdCard.py   百度的代码，略微改了下
+
 idCardDictionaryGenerationTool.py 自己写的，就是为了使用它生成身份证字典
 
 直接下载exe也行，肯定没毒
