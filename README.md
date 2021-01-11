@@ -1,2 +1,3 @@
 # all_Here
-github太难用了，就放了个身份证字典生成脚本。代码很垃圾，对我来说能用就行，有看到的想用也随便下载，随便用
+身份证字典生成工具：idCardDictionaryGenerationTool
+编解码工具：encodeT
