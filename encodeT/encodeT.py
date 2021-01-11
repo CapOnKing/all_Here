@@ -42,7 +42,6 @@ def hexT():
         else:
             sys.exit("[!]请检查输入，已退出!")
     except Exception as e:
-        print(e)
         sys.exit("[!]编码格式似乎不是hex，请更换其他编码解码。")
 
 def asciiT():
@@ -64,7 +63,7 @@ def asciiT():
         else:
             sys.exit("[!]请检查输入，已退出!")
     except Exception as e:
-        sys.exit(e)
+        sys.exit("[!]输入错误！")
 
 def unicoedT():
     print("1.unicode编码\n2.unicode解码\n-----------------------------\n")
@@ -79,10 +78,19 @@ def unicoedT():
         else:
             sys.exit("[!]请检查输入，已退出!")
     except Exception as e:
-        sys.exit(e)
+        sys.exit("[!]输入错误！")
+
+def xhexT():
+    b=input("[+]请输入要解码的字符：")
+    b=b.replace('\\x','')
+    b=b.replace('\\0x','')
+    b=b.replace('0x','')
+    print(b)
+    print(bytes.fromhex(b).decode('utf-8'))
+       
 
 if __name__ == "__main__":
-    print("\n1.base64\n2.hex\n3.Ascii\n4.unicode\n-----------------------------\n")
+    print("\n1.base64\n2.hex\n3.Ascii\n4.unicode\n5.0x或\\x开头（只提供解码）\n-----------------------------\n")
     a=input("[+]请输入选项：")
     try:
         if a=="1":
@@ -92,7 +100,9 @@ if __name__ == "__main__":
         elif a=="3":
             asciiT()
         elif a == "4":
-            unicoedT()        
+            unicoedT() 
+        elif a == "5":
+            xhexT()          
         else:
             sys.exit("[!]请检查输入，已退出!")
     except Exception as e:
