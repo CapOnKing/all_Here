@@ -162,9 +162,9 @@ def printList():
     if len(resultList)==len(set(resultList)):
         print("[+]没有重复值")
     else:
-        print("[!]重复（调试用）")            
-    resultList = finaList(resultList)        #校验下身份证合法性
-    print("[+]正在进行身份证校验")
+        print("[!]重复（调试用）") 
+    print("[+]正在进行身份证校验")        
+    resultList = finaList(resultList)        #校验下身份证合法性  
     print("[+]经过校验后共计{}个身份证生成结果".format(len(resultList)))
     print("[+]正在写入...")  
     m5_1 = hashlib.md5(str(time.time()).encode(encoding='UTF-8')).hexdigest()
@@ -175,12 +175,17 @@ def printList():
             if i==len(resultList)-1:
                 break
             f.write("\n")
-    m5_2 = hashlib.md5(str(time.time()).encode(encoding='UTF-8')).hexdigest()
-    fileName2= "IdCard_6_" + m5_2 + ".txt"
+    fileName2 = "IdCard_6_" + m5_1 + ".txt"
+    six_Temp = []
+    for i in range(len(resultList)):
+        six_Temp.append(resultList[i][-6:])
+    six_Temp = set(six_Temp)
+    six_Temp = list(six_Temp) 
+    print("[+]最后6位去重后有{}种结果".format(len(six_Temp)))    
     with open(fileName2,'w') as f:
-        for i in range(len(resultList)):
-            f.write(resultList[i][-6:])
-            if i==len(resultList)-1:
+        for i in range(len(six_Temp)):
+            f.write(six_Temp[i])
+            if i==len(six_Temp)-1:
                 break
             f.write("\n")        
     print("[+]身份证18位已存入：{}".format(os.getcwd()+"\\"+fileName)) 
