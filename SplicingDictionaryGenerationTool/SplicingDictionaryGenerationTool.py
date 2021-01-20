@@ -31,17 +31,33 @@ def allKindsOfCombination():
     strTemp = ''
     global f
     print("[+]正在读取文件")
-    print("[+]正在为目标去重")  
-    for i in range(len(sys.argv) - 1):
-        globals()['list'+str(i + 1)] = readFiles(sys.argv[i + 1])       #动态创建全局变量,传入3个字典就是3个变量
+    print("[+]同时为目标去重")
+    try:    
+        for i in range(len(sys.argv) - 1):
+            globals()['list'+str(i + 1)] = readFiles(sys.argv[i + 1])       #动态创建全局变量,传入3个字典就是3个变量
+    except Exception as e:
+        sys.exit("[!]检查需读取的文件是否存在！")
     print("[+]读取文件完成")
     print("[+]目标去重已结束")
-    print("[+]预计产生{}种结果".format(len(list1)*len(list2)*len(list3)))    
-    print("[+]正在写入文件")    
-    for j in list1:                                                     #ABC
-        for k in list2:
-            for g in list3:
-                strTemp += j + k + g + '\n'
+    len1 = len(list1)
+    len2 = len(list2)
+    len3 = len(list3)
+    if len1 == 0:
+        len1 = 1
+        list1.append('')
+    if len2 == 0:
+        len2 = 1
+        list2.append('')
+    if len3 == 0:
+        len3 = 1
+        list3.append('')    
+    print("[+]预计产生{}种结果".format(len1*len2*len3))
+    print("[+]正在写入文件")
+        
+    for i in list1:                                                     #ABC
+        for j in list2:
+            for k in list3:
+                strTemp += i + j + k + '\n'
     try:            
         f = open("results\\allKindsOfCombination.txt",'w')
     except Exception as e:
