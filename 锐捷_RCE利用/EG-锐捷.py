@@ -1,6 +1,7 @@
 import requests
 import optparse
 import urllib3
+import sys
 urllib3.disable_warnings()
 
 print('''
