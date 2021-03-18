@@ -1,0 +1,7 @@
+手机多开：https://github.com/asLody/VirtualApp
+手机抓包神器：HttpCanary
+c\c++免杀：https://www.cnblogs.com/cmt/p/14553189.html#_label3_1_2_2
+Mimikatz的18种免杀姿势及防御策略:https://www.freebuf.com/articles/web/234365.html
+倾旋的博客（免杀漏洞C的函数等）：https://payloads.online/page20/
+java开发提高：https://www.cnblogs.com/cmt/p/14553189.html
+java代码审计文章：https://www.cnblogs.com/cmt/p/14553189.html
